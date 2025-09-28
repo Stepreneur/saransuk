@@ -3,10 +3,12 @@ import { Globe, ChevronDown } from 'lucide-react';
 import React from 'react'
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { CalendarCheck } from 'lucide-react';
 const Navbar = ({pageName}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('TH');
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+  const [scrolledText,setScrolledText] = useState('white');
 
   const languages = [
     { code: 'TH', name: 'ไทย' },
@@ -29,29 +31,52 @@ const Navbar = ({pageName}) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  // Handle scroll to change text color
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // Change to black when scrolled 100vh or more
+      if (scrollY >= windowHeight) {
+        setScrolledText('black');
+      } else {
+        setScrolledText('white');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className='bg-transparent fixed pt-3 top-0 left-0 right-0 z-50'>
         <nav className="">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="w-full flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex-shrink-0 self-center">
-              <Image src="/logo.png" width={200} height={200} className='w-[70px] h-[70px]' />
+            <div className="flex-shrink-0 flex items-center self-center">
+              <Image src="/logo-removebg.png" width={200} height={200} alt='logo' className='object-contain w-[70px] h-[70px]' />
+              <span className={`text-[11px] md:text-[17px] font-semibold ${scrolledText === 'white' ? 'text-white' : 'text-black'}`}>สวนผัก 32 ทุกวัน 10:00-21:00น.</span>
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                
-                <div className='flex items-center gap-1 h-max justify-center self-center relative'>
+            <div className="block">
+              <div className="ml-10 flex items-baseline md:space-x-8">
+              <button className="bg-[#9f0600] flex items-center justify-center text-white p-3 rounded-sm text-md font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                  <CalendarCheck className='inline-block self-center mt-[2px] mr-2 w-4 h-4' aria-hidden="true"/> <span className='text-[13px] md:text-md'>จองคิวเลย</span>
+                </button>
+                <div className='hidden items-center gap-1 h-max justify-center self-center relative'>
                     
                     {/* Custom Language Dropdown */}
-                    <div onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                    className="hover:bg-gray-100 rounded-md px-2 py-1 gap-2 focus:outline-none focus:ring-2 focus:ring-green-500 relative flex items-center  h-max justify-center self-center" ref={dropdownRef}>
-                        <Globe width={17} height={17} className='text-white' />
+                    <div  onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                    className=" hover:bg-gray-100 rounded-md px-2 py-1 gap-2 focus:outline-none focus:ring-2 focus:ring-green-500 relative flex items-center  h-max justify-center self-center" ref={dropdownRef}>
+                        <Globe width={17} height={17} className={scrolledText === 'white' ? 'text-white' : 'text-black'} />
                         <button
                             onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                            className="flex items-center gap-2  text-white   transition-colors duration-200 "
+                            className={`flex items-center gap-2 transition-colors duration-200 ${scrolledText === 'white' ? 'text-white' : 'text-black'}`}
                         >
                             <span className="text-sm font-medium">{currentLanguage.code}</span>
                             <ChevronDown 
@@ -97,14 +122,15 @@ const Navbar = ({pageName}) => {
               </div>
             </div>
 
+
             {/* Hamburger Menu */}
-            <div className="md:hidden flex items-center gap-2">
+            <div className="hidden items-center gap-2">
             <div onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
                     className="hover:bg-gray-100 rounded-md px-2 py-1 gap-2 focus:outline-none focus:ring-2 focus:ring-green-500 relative flex items-center  h-max justify-center self-center" ref={dropdownRef}>
-                        <Globe width={17} height={17} className='text-white' />
+                        <Globe width={17} height={17} className={scrolledText === 'white' ? 'text-white' : 'text-black'} />
                         <button
                             onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                            className="flex items-center gap-2  text-white   transition-colors duration-200 "
+                            className={`flex items-center gap-2 transition-colors duration-200 ${scrolledText === 'white' ? 'text-white' : 'text-black'}`}
                         >
                             <span className="text-sm font-medium">{currentLanguage.code}</span>
                             <ChevronDown 
@@ -149,7 +175,7 @@ const Navbar = ({pageName}) => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-700 hover:text-green-600 focus:outline-none focus:text-green-600"
               >
-                <svg className="text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className={`h-6 w-6 ${scrolledText === 'white' ? 'text-white' : 'text-black'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {isMenuOpen ? (
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   ) : (

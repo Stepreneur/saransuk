@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Navbar from '@/components/Navbar/Navbar/page';
+import Benefit from '@/components/Benefit/page';
+import Navbar from '@/components/Navbar/page';
 import Image from 'next/image';
 import { ArrowRightIcon, ChevronsDown, CircleChevronDown, Flower, Rose, Star, X, ChevronDown, ChevronUp, CalendarCheck } from 'lucide-react';
 export default function Home() {
@@ -155,12 +156,12 @@ export default function Home() {
                 <article className="text-center flex flex-col gap-5 p-6">
                   <div className="flex flex-row items-center justify-center self-start md:self-center gap-5">
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] w-16 h-16 rounded-tl-[20px] overflow-hidden flex items-center justify-center">
-                      <Image src="/feature.png" width={100} height={100} className="w-full h-full object-cover" alt="ภาพบรรยากาศผ่อนคลาย" />
+                      <Image src="/service1.svg" width={100} height={100} className="w-full h-full object-cover" alt="ภาพบรรยากาศผ่อนคลาย" />
                     </div>
-                    <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">บรรยากาศผ่อนคลาย</h3>
+                    <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">ห้องนวดส่วนตัว ฟรี!</h3>
                   </div>
                   <p className="lg:text-[22px] text-start md:text-center text-[#5A352C]">
-                    ช่วยคลายกล้ามเนื้อ ลดความเครียด และปรับสมดุลร่างกาย
+                    เราอยากให้คุณรู้สึกสงบอย่างแท้จริง และเราให้ความสำคัญกับความเป็นส่วนตัว
                   </p>
                 </article>
 
@@ -170,13 +171,13 @@ export default function Home() {
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] md:flex hidden bg-green-100 w-16 h-16 rounded-[4px] overflow-hidden flex items-center justify-center">
                       <Image src="/feature.png" width={100} height={100} className="w-full h-full object-cover" alt="ภาพดนตรีบำบัด" />
                     </div>
-                    <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">ดนตรีบำบัด</h3>
+                    <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">เสียงดนตรีบำบัด</h3>
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] md:hidden flex bg-green-100 w-16 h-16 rounded-[4px] overflow-hidden flex items-center justify-center">
                       <Image src="/feature.png" width={100} height={100} className="w-full h-full object-cover" alt="ภาพดนตรีบำบัด" />
                     </div>
                   </div>
                   <p className="lg:text-[22px] text-end md:text-center text-[#5A352C]">
-                    ช่วยคลายกล้ามเนื้อ ลดความเครียด และปรับสมดุลร่างกาย
+                    เราคัดสรรและออกแบบเสียงดนตรีเพื่อช่วยคลายความเครียดโดยเฉพาะ
                   </p>
                 </article>
 
@@ -186,10 +187,10 @@ export default function Home() {
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] lg:rounded-tr-[0] bg-green-100 w-16 h-16 rounded-tr-[20px] overflow-hidden flex items-center justify-center">
                       <Image src="/feature.png" width={100} height={100} className="w-full h-full object-cover" alt="ภาพช่างนวดผู้เชี่ยวชาญ" />
                     </div>
-                    <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">ช่างนวดผู้เชี่ยวชาญ</h3>
+                    <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">ช่างนวดที่เข้าใจคุณ</h3>
                   </div>
                   <p className="lg:text-[22px] text-start md:text-center text-[#5A352C]">
-                    ช่วยคลายกล้ามเนื้อ ลดความเครียด และปรับสมดุลร่างกาย
+                    ช่างนวดของเรายิ้มแย้ม เอาใจใส่และพร้อมที่จะรับฟังปัญหาของคุณ
                   </p>
                 </article>
 
@@ -197,70 +198,8 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Benefits Section */}
-          <section className='h-max mb-20 w-full flex flex-col bg-white' aria-labelledby="benefits-heading">
-            <h2 id="benefits-heading" className='text-[16pt] mb-5 font-bold text-[#9f0600] text-center lg:text-[27px]'>
-              <Flower className='inline-block'/>สิ่งดีๆจากการนวด
-            </h2>
-            <div className='relative'>
-              <div 
-                ref={scrollContainerRef}
-                className=' flex flex-row lg:items-center  overflow-x-auto gap-6 px-6 pb-4 snap-x snap-mandatory scroll-smooth scrollbar-hide'
-                style={{ scrollBehavior: 'smooth' }}
-                role="tablist"
-                aria-label="ประโยชน์จากการนวด"
-              >
-                {cards.map((card, index) => (
-                  <article 
-                    key={index}
-                    className={`border border-[#ebebebcd] min-w-[90vw] md:w-[50vw] md:min-w-[50vw] lg:w-max lg:min-w-max  rounded-[20px] py-5 relative flex flex-col items-center justify-center  shadow-lg snap-center transition-all duration-500 ease-out cursor-pointer ${
-                      activeCard === index ? ' shadow-2xl' : ''
-                    }`}
-                    role="tabpanel"
-                    aria-selected={activeCard === index}
-                  >
-                    <div className=' w-full mt-5'>
-                      <div className='flex flex-col items-center justify-center gap-5 '>
-                        <h3 className='lg:text-[27px] text-[24pt] font-bold text-[#5A352C]'>{card.title}</h3>
-                        <p className='lg:text-[20px] lg:max-w-[500px] inline-block px-10 text-center text-[16pt] text-[#5A352C] '>{card.description}</p>
-                      </div>
-                    </div>
-                    <div className='mt-2 lg:h-full lg:w-full lg:p-10 w-[300px] h-[300px] flex items-center justify-center'>
-                      <Image src="/feature.png" width={300} height={300} className='w-full h-full rounded-[20px]' alt={`ภาพประกอบ ${card.title}`} />
-                    </div>
-                  </article>
-                ))}
-              </div>
-              
-              {/* Dots Indicator */}
-              <nav className='flex justify-center gap-3 mt-6' aria-label="นำทางระหว่างประโยชน์">
-                {cards.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      const container = scrollContainerRef.current;
-                      if (container) {
-                        const targetCard = container.children[index];
-                        if (targetCard) {
-                          targetCard.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'nearest',
-                            inline: 'center'
-                          });
-                        }
-                      }
-                    }}
-                    className={`lg:w-4 lg:h-4 w-3 h-3 rounded-full transition-all duration-300 ${
-                      activeCard === index 
-                        ? 'bg-[#5A352C] scale-125' 
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                    aria-label={`ไปยังประโยชน์ ${index + 1}`}
-                  />
-                ))}
-              </nav>
-            </div>
-          </section>
+          <Benefit />
+
 
           {/* Customer Reviews */}
           <section id="testimonials" className="py-20" aria-labelledby="testimonials-heading">
@@ -284,13 +223,11 @@ export default function Home() {
                   <blockquote className="text-[#5A352C] mb-4">
                     "นวดดีมาก ช่างนวดมืออาชีพ ผ่อนคลายมาก ราคาไม่แพง จะมาอีกแน่นอน"
                   </blockquote>
-                  <footer className="flex items-center">
-                    <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3" aria-hidden="true">
-                      ส
+                  <footer className="flex flex-col">
+                  <div >
+                      <cite className="font-semibold text-[#5A352C] not-italic">นิดา</cite>
                     </div>
-                    <div>
-                      <cite className="font-semibold text-[#5A352C] not-italic">สมชาย</cite>
-                    </div>
+                    <Image src="/1.jpg" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
                   </footer>
                 </article>
 
@@ -303,13 +240,11 @@ export default function Home() {
                   <blockquote className="text-[#5A352C] mb-4">
                     "บรรยากาศดี ห้องสะอาด ช่างนวดใจดี นวดแล้วหายปวดหลังเลย"
                   </blockquote>
-                  <footer className="flex items-center">
-                    <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3" aria-hidden="true">
-                      ก
+                  <footer className="flex flex-col">
+                  <div >
+                      <cite className="font-semibold text-[#5A352C] not-italic">นิดา</cite>
                     </div>
-                    <div>
-                      <cite className="font-semibold text-[#5A352C] not-italic">กานดา</cite>
-                    </div>
+                    <Image src="/2.jpg" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
                   </footer>
                 </article>
 
@@ -322,16 +257,14 @@ export default function Home() {
                   <blockquote className="text-[#5A352C] mb-4">
                     "บริการดีมาก ราคาเป็นมิตร ช่างนวดมีประสบการณ์ แนะนำเลย"
                   </blockquote>
-                  <footer className="flex items-center">
-                    <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-3" aria-hidden="true">
-                      น
-                    </div>
-                    <div>
+                  <footer className="flex flex-col">
+                    <div >
                       <cite className="font-semibold text-[#5A352C] not-italic">นิดา</cite>
                     </div>
+                    <Image src="/3.jpg" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
                   </footer>
                 </article>
-                <aside className='flex w-full flex-col items-center justify-center gap-6'>
+                <aside className=' w-full flex-col items-center justify-center gap-6 hidden'>
                   <div className='self-center text-center text-[14px] text-gray-500 underline'>แสดงทั้งหมด</div>
                   <button 
                     onClick={() => setShowReviewModal(true)}
@@ -365,15 +298,15 @@ export default function Home() {
                   },
                   {
                     question: "ราคาเท่าไหร่?",
-                    answer: "นวดไทย 1 ชั่วโมง เริ่มต้นที่ 300 บาท นวดเท้า 1 ชั่วโมง 250 บาท นวดสมุนไพร 1 ชั่วโมง 400 บาท"
+                    answer: "นวดไทย นวดเท้า 1 ชั่วโมง เริ่มต้นที่ 199 บาท , นวดรีดเส้น นวดคอบ่าไหล่ 1 ชั่วโมง เริ่มต้น 299 บาท นวดน้ำมัน เริ่มต้น 399 บาท , นวดอโรม่า ขัดผิว เริ่มต้น 499 บาท"
                   },
                   {
                     question: "เปิดบริการวันไหนบ้าง?",
-                    answer: "เปิดบริการทุกวัน ตั้งแต่ 9:00 - 21:00 น. สามารถโทรสอบถามหรือจองได้ตลอดเวลา"
+                    answer: "เปิดบริการทุกวัน ตั้งแต่ 10:00 - 21:00 น. สามารถโทรสอบถามหรือจองได้ตลอดเวลา"
                   },
                   {
                     question: "มีที่จอดรถไหม?",
-                    answer: "มีที่จอดรถให้บริการฟรี อยู่ด้านหน้าตึก สามารถจอดได้สะดวก"
+                    answer: "มีที่จอดรถให้บริการฟรี อยู่ด้านหน้าตึก และบริเวณใกล้เคียง สามารถจอดได้สะดวก"
                   }
                 ].map((faq, index) => (
                   <article key={index} className="bg-gray-50 rounded-lg overflow-hidden">
@@ -415,15 +348,15 @@ export default function Home() {
                 มาใช้บริการนวดกับเราเพื่อสุขภาพและความผ่อนคลายที่ดีที่สุด
               </p>
               <nav className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-[#9f0600] flex items-center justify-center text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                <button className="bg-[#9f0600] flex items-center justify-center text-white px-8 py-4 rounded-sm text-lg font-semibold transition-colors shadow-lg">
                   <CalendarCheck className='inline-block mr-2' aria-hidden="true"/> จองคิวเลย
                 </button>
-                <button className="border-2 border-[#5A352C] text-[#5A352C] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition-colors">
+                <button className="border-2 border-[#5A352C] text-[#5A352C] px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
                   โทรสอบถาม
                 </button>
               </nav>
               <address className="text-[#5A352C] text-sm mt-4 not-italic">
-                โทร: 02-123-4567 • เปิดทุกวัน 9:00-21:00 • ราคาเริ่มต้น 250 บาท
+                โทร: 081-497-9694 • เปิดทุกวัน 10:00-21:00 • ซอย สวนผัก 32 ถนน ปลายบาง นนทบุรี
               </address>
             </div>
           </section>
