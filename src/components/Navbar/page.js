@@ -58,7 +58,7 @@ const Navbar = ({pageName}) => {
           <div className="w-full flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center self-center">
-              <Image src="/logo-removebg.png" width={200} height={200} alt='logo' className='object-contain w-[70px] h-[70px]' />
+              <Image src="/logo-removebg.webp" width={200} height={200} alt='logo' className='object-contain w-[70px] h-[70px]' />
               <span className={`text-[11px] md:text-[17px] font-semibold ${scrolledText === 'white' ? 'text-white' : 'text-black'}`}>สวนผัก 32 ทุกวัน 10:00-21:00น.</span>
             </div>
 
