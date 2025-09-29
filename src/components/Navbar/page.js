@@ -54,7 +54,7 @@ const Navbar = ({pageName}) => {
   return (
     <div className='bg-transparent fixed pt-3 top-0 left-0 right-0 z-50'>
         <nav className="">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-2 sm:px-6 lg:px-8">
           <div className="w-full flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center self-center">
@@ -65,9 +65,11 @@ const Navbar = ({pageName}) => {
             {/* Desktop Navigation */}
             <div className="block">
               <div className="ml-10 flex items-baseline md:space-x-8">
-              <button className="bg-[#9f0600] flex items-center justify-center text-white p-3 rounded-sm text-md font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-                  <CalendarCheck className='inline-block self-center mt-[2px] mr-2 w-4 h-4' aria-hidden="true"/> <span className='text-[13px] md:text-md'>จองคิวเลย</span>
-                </button>
+                <a href='https://lin.ee/Pfys1We' target='_blank'>
+                  <button className="bg-[#9f0600] flex items-center justify-center text-white p-3 rounded-sm text-md font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                    <CalendarCheck className='inline-block self-center mt-[2px] mr-2 w-4 h-4' aria-hidden="true"/> <span className='text-[13px] md:text-md'>จองคิวผ่านไลน์</span>
+                  </button>
+                </a>
                 <div className='hidden items-center gap-1 h-max justify-center self-center relative'>
                     
                     {/* Custom Language Dropdown */}
