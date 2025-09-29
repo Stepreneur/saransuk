@@ -26,12 +26,12 @@ return <div>
 
       {[
         {
-          id : "service#garden",
+          id : "thaimassage",
           name: "นวดไทย",
           desc: "สัมผัสประสบการณ์นวดไทย ให้ร่างกายคลายความตึงเครียด ผ่อนคลายทุกอาการเมื่อยล้า และเติมความสดชื่นให้ชีวิตประจำวันของคุณ",
           price: "",
           icon: '',
-          img: "/thaimassage.jpg",
+          img: "/thaimassage.webp",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
           features: [
             "• 1 ชั่วโมง <span class='font-bold'>199 บาท</span>",
@@ -40,12 +40,12 @@ return <div>
             "• เพิ่ม <span>30</span> นาที <span class='font-bold'>100 บาท</span>"
           ]
         },{
-          id : "service#grass",
+          id : "oilmassage",
           name: "นวดน้ำมัน",
           desc: "ผ่อนคลายร่างกายและจิตใจด้วยนวดน้ำมันสูตรพิเศษ ช่วยให้กล้ามเนื้อคลายตัวอย่างล้ำลึก กระตุ้นการไหลเวียนเลือด รู้สึกได้ตั้งแต่สัมผัสแรกผ่อนคลายร่างกายและจิตใจด้วยนวดน้ำมันสูตรพิเศษ  ",
           price: "",
           icon: '',
-          img: "/oilmassage.png",
+          img: "/oilmassage.webp",
           gradient: "from-yellow-50 to-yellow-100",
           iconBg: "bg-yellow-600 group-hover:bg-yellow-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
@@ -57,12 +57,12 @@ return <div>
           ]
         },
         {
-          id : "service#rock",
+          id : "thaideeptissuemassage",
           name: "นวดไทยรีดเส้น",
           icon: '',
           desc: "ปลดล็อกความตึงเครียดและคลายกล้ามเนื้อด้วยนวดไทยรีดเส้น เทคนิคดั้งเดิมที่เน้นการกดจุดและยืดเหยียดเส้นให้คลายตัว ช่วยกระตุ้นการไหลเวียนของเลือด ให้ร่างกายรู้สึกเบาสบาย สดชื่น และพร้อมรับวันใหม่",
           price: "",
-          img: "/reedsenmassage.jpg",
+          img: "/reedsenmassage.webp",
           gradient: "from-gray-50 to-gray-100",
           iconBg: "bg-gray-600 group-hover:bg-gray-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
@@ -74,12 +74,12 @@ return <div>
           ]
         },
         {
-          id : "service#tree",
+          id : "neckmassage",
           name: "นวดคอบ่าไหล",
           icon: '',
           desc: "คลายอาการตึงเครียดและปวดบ่าไหล่ด้วยนวดมืออาชีพ เทคนิคเฉพาะที่เน้นการกดจุดและนวดแบบลึกถึงกล้ามเนื้อ ช่วยให้คุณรู้สึกผ่อนคลาย ลดความตึงเครียด และเคลื่อนไหวได้อย่างคล่องตัวอีกครั้ง",
           price: "",
-          img: "/neckmassage.jpg",
+          img: "/neckmassage.webp",
           gradient: "from-emerald-50 to-emerald-100",
           iconBg: "bg-emerald-600 group-hover:bg-emerald-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
@@ -91,12 +91,12 @@ return <div>
           ]
         },
         {
-          id : "service#grass",
+          id : "footmassage",
           name: "นวดเท้า",
           desc: "สัมผัสความผ่อนคลายจากปลายเท้าสู่ทั่วร่างกายด้วยศาสตร์การนวดกดจุดฝ่าเท้า ที่มุ่งเน้นไปที่การกระตุ้นจุดสะท้อนต่าง ๆ บนฝ่าเท้า ซึ่งเชื่อมโยงกับอวัยวะและระบบต่าง ๆ ทั่วร่างกาย ",
           price: "",
           icon: '',
-          img: "/footmassage.jpg",
+          img: "/footmassage.webp",
           gradient: "from-yellow-50 to-yellow-100",
           iconBg: "bg-yellow-600 group-hover:bg-yellow-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
@@ -107,12 +107,12 @@ return <div>
             "• เพิ่ม <span>30</span> นาที <span class='font-bold'>100 บาท</span>"
           ]
         },{
-          id : "service#grass",
+          id : "aromatherapy",
           name: "อโรม่า",
           desc: "สัมผัสประสบการณ์นวดอโรม่าแบบพรีเมียม ด้วยน้ำมันหอมระเหยสูตรพิเศษ  ช่วยคลายความตึงเครียดของกล้ามเนื้อ  พร้อมกลิ่นหอมละมุนจากธรรมชาติ มอบความสดชื่นและผ่อนคลายลึกถึงจิตใจ เหมาะสำหรับผู้ที่ต้องการฟื้นฟูร่างกายและเติมพลังให้ชีวิตประจำวัน",
           price: "",
           icon: '',
-          img: "/5.jpg",
+          img: "/5.webp",
           gradient: "from-yellow-50 to-yellow-100",
           iconBg: "bg-yellow-600 group-hover:bg-yellow-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
@@ -123,12 +123,12 @@ return <div>
             "• เพิ่ม <span>30</span> นาที <span class='font-bold'>100 บาท</span> "
           ]
         },{
-          id : "service#grass",
+          id : "bodyscrub",
           name: "ขัดผิว",
           desc: "สัมผัสประสบการณ์ขัดผิวแบบพรีเมียม ด้วยสูตรสครับจากธรรมชาติ ช่วยขจัดเซลล์ผิวเสื่อมสภาพ เผยผิวเนียนนุ่ม กระจ่างใส พร้อมกระตุ้นการไหลเวียนเลือด ให้ร่างกายรู้สึกสดชื่นและผ่อนคลายทุกสัมผัส ",
           price: "",
           icon: <Leaf className="w-8 h-8 inline-block mr-3" />,
-          img: "/9.jpg",
+          img: "/9.webp",
           gradient: "from-yellow-50 to-yellow-100",
           iconBg: "bg-yellow-600 group-hover:bg-yellow-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
@@ -143,6 +143,7 @@ return <div>
     
       ].map((service, index) => (
         <div
+          id={service.id} 
           key={index}
           className="w-[500px] shrink-0 group"
         >

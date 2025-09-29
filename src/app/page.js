@@ -1,5 +1,5 @@
 'use client';
-
+import Link from "next/link";
 import { useState, useRef, useEffect } from 'react';
 import Benefit from '@/components/Benefit/page';
 import Navbar from '@/components/Navbar/page';
@@ -120,7 +120,7 @@ export default function Home() {
         <main>
           {/* Hero Section */}
           <header className="bg-black py-20 h-screen flex items-center  justify-center relative">
-            <Image src="/hero.jpg" width={1000} height={1000} className="absolute top-0 left-0 w-full h-full object-cover z-1 opacity-50" alt="ภาพพื้นหลังร้านนวด" />
+            <Image src="/hero.webp" width={1000} height={1000} className="absolute top-0 left-0 w-full h-full object-cover z-1 opacity-50" alt="ภาพพื้นหลังร้านนวด" />
             <div className=" z-2 px-4 sm:px-6 lg:px-8">
               <div className="text-center lg:pb-[50px] lg:gap-5 flex flex-col items-center justify-center ">
                 <h1 className=" lg:text-6xl
@@ -156,7 +156,7 @@ export default function Home() {
                 <article className="text-center flex flex-col gap-5 p-6">
                   <div className="flex flex-row items-center justify-center self-start md:self-center gap-5">
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] w-16 h-16 rounded-tl-[20px] overflow-hidden flex items-center justify-center">
-                      <Image src="/5.jpg" width={100} height={100} className="w-full h-full object-cover" alt="ภาพบรรยากาศผ่อนคลาย" />
+                      <Image src="/5.webp" width={100} height={100} className="w-full h-full object-cover" alt="ภาพบรรยากาศผ่อนคลาย" />
                     </div>
                     <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">ห้องนวดส่วนตัว ฟรี!</h3>
                   </div>
@@ -169,11 +169,11 @@ export default function Home() {
                 <article className="text-center flex flex-col gap-5 p-6">
                   <div className="flex flex-row items-center justify-center self-end md:self-center gap-5">
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] md:flex hidden bg-green-100 w-16 h-16 rounded-[4px] overflow-hidden flex items-center justify-center">
-                      <Image src="/6.jpg" width={100} height={100} className="w-full h-full object-cover" alt="ภาพดนตรีบำบัด" />
+                      <Image src="/6.webp" width={100} height={100} className="w-full h-full object-cover" alt="ภาพดนตรีบำบัด" />
                     </div>
                     <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">เสียงดนตรีบำบัด</h3>
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] md:hidden flex bg-green-100 w-16 h-16 rounded-[4px] overflow-hidden flex items-center justify-center">
-                      <Image src="/6.jpg" width={100} height={100} className="w-full h-full object-cover" alt="ภาพดนตรีบำบัด" />
+                      <Image src="/6.webp" width={100} height={100} className="w-full h-full object-cover" alt="ภาพดนตรีบำบัด" />
                     </div>
                   </div>
                   <p className="lg:text-[22px] text-end md:text-center text-[#5A352C]">
@@ -185,7 +185,7 @@ export default function Home() {
                 <article className="text-center flex flex-col gap-5 p-6">
                   <div className="flex flex-row items-center justify-center self-start md:self-center gap-5">
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] lg:rounded-tr-[0] bg-green-100 w-16 h-16 rounded-tr-[20px] overflow-hidden flex items-center justify-center">
-                      <Image src="/10.JPG" width={100} height={100} className="w-full h-full object-cover" alt="ภาพช่างนวดผู้เชี่ยวชาญ" />
+                      <Image src="/10.webp" width={100} height={100} className="w-full h-full object-cover" alt="ภาพช่างนวดผู้เชี่ยวชาญ" />
                     </div>
                     <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">ช่างนวดที่เข้าใจคุณ</h3>
                   </div>
@@ -197,6 +197,44 @@ export default function Home() {
               </div>
             </div>
           </section>
+
+          <section className="flex flex-row items-center justify-center">
+          <iframe className="w-[50%] md:w-[267px] mx-auto" 
+          src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F779969274740620%2F&show_text=false&width=267&t=0" 
+          width="267" 
+          height="476" 
+          style={{ border: "none", overflow: "hidden" }}
+          scrolling="no"
+          frameBorder="0" 
+          allowfullscreen 
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
+          ></iframe>
+
+          <iframe className="md:block hidden mx-auto"
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1289125769559919%2F&show_text=false&width=267&t=0"
+            width="267"
+            height="476"
+            style={{ border: "none", overflow: "hidden" }}
+            scrolling="no"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen
+            ></iframe>
+          
+          <iframe className="w-[50%] md:w-[267px] mx-auto"
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1929491644501197%2F&show_text=false&width=267&t=0"
+            width="267"
+            height="476"
+            style={{ border: "none", overflow: "hidden" }}
+            scrolling="no"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+</section>
+
+         
+          
 
           <Benefit />
 
@@ -227,7 +265,7 @@ export default function Home() {
                   <div >
                       <cite className="font-semibold text-[#5A352C] not-italic">ธนานันต์ อิ่มบุญ</cite>
                     </div>
-                    <Image src="/review3.jpg" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
+                    <Image src="/review3.webp" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
                   </footer>
                 </article>
 
@@ -244,7 +282,7 @@ export default function Home() {
                   <div >
                       <cite className="font-semibold text-[#5A352C] not-italic">Darlyn Chainam</cite>
                     </div>
-                    <Image src="/review.jfif" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
+                    <Image src="/review.webp" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
                   </footer>
                 </article>
 
@@ -261,7 +299,7 @@ export default function Home() {
                     <div >
                       <cite className="font-semibold text-[#5A352C] not-italic">Kanpirom Munacata</cite>
                     </div>
-                    <Image src="/review2.jpg" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
+                    <Image src="/review2.webp" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
                   </footer>
                 </article>
                 <aside className=' w-full flex-col items-center justify-center gap-6 hidden'>
@@ -351,23 +389,25 @@ export default function Home() {
                 <button className="bg-[#9f0600] flex items-center justify-center text-white px-8 py-4 rounded-sm text-lg font-semibold transition-colors shadow-lg">
                   <CalendarCheck className='inline-block mr-2' aria-hidden="true"/> จองคิวเลย
                 </button>
-                <button className="border-2 border-[#5A352C] text-[#5A352C] px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
-                  โทรสอบถาม
-                </button>
+                <a href="tel:0876732013">
+                  <button className="border-2 border-[#5A352C] text-[#5A352C] px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+                    โทรสอบถาม
+                  </button>
+                </a>
               </nav>
               <address className="text-[#5A352C] text-sm mt-4 not-italic">
-                โทร: 081-497-9694 • เปิดทุกวัน 10:00-21:00 • ซอย สวนผัก 32 ถนน ปลายบาง นนทบุรี
+                โทร: 087-673-2013 • เปิดทุกวัน 10:00-21:00 • ซอย สวนผัก 32 ถนน ปลายบาง นนทบุรี
               </address>
             </div>
           </section>
         </main>
 
         {/* Footer */}
-        <footer id="contact" className="bg-white mt-20 text-[#5A352C] py-12 flex flex-col items-center">
+        <footer id="contact" className="bg-white mt-20 text-[#5A352C] py-12 flex flex-col items-center justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-4 gap-8">
-              <section className='text-center'>
-                <h3 className="text-2xl font-bold text-[#5A352C] mb-4">🌿 สลาลันสุข</h3>
+            <div className="grid md:grid-cols-4 gap-8  ">
+              <section className='text-center flex flex-col items-center'>
+                <h3 className="text-2xl font-bold flex flex-col items-center justify-center text-[#5A352C] mb-4"> <Image src="/logo-removebg.webp" width={50} height={50} className="w-[50px] h-[50px] object-cover" alt="ภาพบรรยากาศผ่อนคลาย" /> <span>สลาลันสุข</span></h3>
                 <p className="text-gray-400">
                   ร้านนวดไทยแท้ เพื่อสุขภาพและความผ่อนคลายที่ดีที่สุด
                 </p>
@@ -377,16 +417,19 @@ export default function Home() {
                 <h4 className="text-lg font-semibold mb-4">บริการ</h4>
                 <nav>
                   <ul className="space-y-2 text-gray-400">
-                    <li><a href="#" className="hover:text-white transition-colors">นวดไทย</a></li>
-                    <li><a href="#" className="hover:text-white transition-colors">นวดเท้า</a></li>
-                    <li><a href="#" className="hover:text-white transition-colors">นวดสมุนไพร</a></li>
-                    <li><a href="#" className="hover:text-white transition-colors">แพ็คเกจ</a></li>
+                    <li><a href="#thaimassage" >นวดไทย</a></li>
+                    <li><a href="#footmassage" >นวดเท้า</a></li>
+                    <li><a href="#neckmassage" >นวดคอบ่าไหล่</a></li>
+                    <li><a href="#oilmassage" >นวดน้ำมัน</a></li>
+                    <li><a href="#thaideeptissuemassage" >นวดรีดเส้น</a></li>
+                    <li><a href="#aromatherapy" >นวดอโรม่า</a></li>
+                    <li><a href="#bodyscrub" >นวดขัดผิว</a></li>
                   </ul>
                 </nav>
               </section>
               
-              <section>
-                <h4 className="text-lg font-semibold mb-4">ข้อมูลร้าน</h4>
+              <section className="">
+                <h4 className="text-lg font-semibold mb-4 ">ข้อมูลร้าน</h4>
                 <nav>
                   <ul className="space-y-2 text-gray-400">
                     <li><a href="#" className="hover:text-white transition-colors">เกี่ยวกับเรา</a></li>
@@ -402,7 +445,7 @@ export default function Home() {
                 <address className="not-italic">
                   <ul className="space-y-2 text-gray-400">
                     <li>📞 087-673-2013</li>
-                    <li>📧 saransukmassage</li>
+                    <li>📧 saransukmassage@gmail.com</li>
                     <li>📍 102/50 ถนน ปลายบาง, ซอย สวนผัก 32, ตำบล มหาสวัสดิ์, อำเภอบางกรวย, จังหวัดนนทบุรี 11130</li>
                     <li>🕘 เปิดทุกวัน 10:00-21:00</li>
                   </ul>
