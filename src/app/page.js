@@ -156,7 +156,7 @@ export default function Home() {
                 <article className="text-center flex flex-col gap-5 p-6">
                   <div className="flex flex-row items-center justify-center self-start md:self-center gap-5">
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] w-16 h-16 rounded-tl-[20px] overflow-hidden flex items-center justify-center">
-                      <Image src="/service1.svg" width={100} height={100} className="w-full h-full object-cover" alt="ภาพบรรยากาศผ่อนคลาย" />
+                      <Image src="/5.jpg" width={100} height={100} className="w-full h-full object-cover" alt="ภาพบรรยากาศผ่อนคลาย" />
                     </div>
                     <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">ห้องนวดส่วนตัว ฟรี!</h3>
                   </div>
@@ -169,11 +169,11 @@ export default function Home() {
                 <article className="text-center flex flex-col gap-5 p-6">
                   <div className="flex flex-row items-center justify-center self-end md:self-center gap-5">
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] md:flex hidden bg-green-100 w-16 h-16 rounded-[4px] overflow-hidden flex items-center justify-center">
-                      <Image src="/feature.png" width={100} height={100} className="w-full h-full object-cover" alt="ภาพดนตรีบำบัด" />
+                      <Image src="/6.jpg" width={100} height={100} className="w-full h-full object-cover" alt="ภาพดนตรีบำบัด" />
                     </div>
                     <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">เสียงดนตรีบำบัด</h3>
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] md:hidden flex bg-green-100 w-16 h-16 rounded-[4px] overflow-hidden flex items-center justify-center">
-                      <Image src="/feature.png" width={100} height={100} className="w-full h-full object-cover" alt="ภาพดนตรีบำบัด" />
+                      <Image src="/6.jpg" width={100} height={100} className="w-full h-full object-cover" alt="ภาพดนตรีบำบัด" />
                     </div>
                   </div>
                   <p className="lg:text-[22px] text-end md:text-center text-[#5A352C]">
@@ -185,7 +185,7 @@ export default function Home() {
                 <article className="text-center flex flex-col gap-5 p-6">
                   <div className="flex flex-row items-center justify-center self-start md:self-center gap-5">
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] lg:rounded-tr-[0] bg-green-100 w-16 h-16 rounded-tr-[20px] overflow-hidden flex items-center justify-center">
-                      <Image src="/feature.png" width={100} height={100} className="w-full h-full object-cover" alt="ภาพช่างนวดผู้เชี่ยวชาญ" />
+                      <Image src="/10.JPG" width={100} height={100} className="w-full h-full object-cover" alt="ภาพช่างนวดผู้เชี่ยวชาญ" />
                     </div>
                     <h3 className="lg:self-end lg:text-[27px] text-xl font-semibold text-[#5A352C]">ช่างนวดที่เข้าใจคุณ</h3>
                   </div>
@@ -225,9 +225,9 @@ export default function Home() {
                   </blockquote>
                   <footer className="flex flex-col">
                   <div >
-                      <cite className="font-semibold text-[#5A352C] not-italic">นิดา</cite>
+                      <cite className="font-semibold text-[#5A352C] not-italic">ธนานันต์ อิ่มบุญ</cite>
                     </div>
-                    <Image src="/1.jpg" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
+                    <Image src="/review3.jpg" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
                   </footer>
                 </article>
 
@@ -242,9 +242,9 @@ export default function Home() {
                   </blockquote>
                   <footer className="flex flex-col">
                   <div >
-                      <cite className="font-semibold text-[#5A352C] not-italic">นิดา</cite>
+                      <cite className="font-semibold text-[#5A352C] not-italic">Darlyn Chainam</cite>
                     </div>
-                    <Image src="/2.jpg" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
+                    <Image src="/review.jfif" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
                   </footer>
                 </article>
 
@@ -259,9 +259,9 @@ export default function Home() {
                   </blockquote>
                   <footer className="flex flex-col">
                     <div >
-                      <cite className="font-semibold text-[#5A352C] not-italic">นิดา</cite>
+                      <cite className="font-semibold text-[#5A352C] not-italic">Kanpirom Munacata</cite>
                     </div>
-                    <Image src="/3.jpg" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
+                    <Image src="/review2.jpg" width={100} height={100} className="w-[300px] h-[300px] object-cover rounded-full self-center" alt="นิดา" />
                   </footer>
                 </article>
                 <aside className=' w-full flex-col items-center justify-center gap-6 hidden'>
@@ -401,17 +401,17 @@ export default function Home() {
                 <h4 className="text-lg font-semibold mb-4">ติดต่อ</h4>
                 <address className="not-italic">
                   <ul className="space-y-2 text-gray-400">
-                    <li>📞 02-123-4567</li>
-                    <li>📧 info@salaansuk.com</li>
-                    <li>📍 123 ถนนสุขุมวิท กรุงเทพฯ</li>
-                    <li>🕘 เปิดทุกวัน 9:00-21:00</li>
+                    <li>📞 087-673-2013</li>
+                    <li>📧 saransukmassage</li>
+                    <li>📍 102/50 ถนน ปลายบาง, ซอย สวนผัก 32, ตำบล มหาสวัสดิ์, อำเภอบางกรวย, จังหวัดนนทบุรี 11130</li>
+                    <li>🕘 เปิดทุกวัน 10:00-21:00</li>
                   </ul>
                 </address>
               </section>
             </div>
             
             <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-              <p>&copy; 2024 สลาลันสุข. สงวนลิขสิทธิ์.</p>
+              <p>&copy; 2025 สลาลันสุข. สงวนลิขสิทธิ์.</p>
             </div>
           </div>
         </footer>
