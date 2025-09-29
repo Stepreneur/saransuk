@@ -150,7 +150,7 @@ return <div>
           <div className={`bg-gradient-to-br bg-white  shadow-xl rounded-2xl p-8 h-full hover:shadow-2xl transition-all group-hover:transform group-hover:scale-105`}>
             <h3 className="text-xl font-bold text-[#5A352C] mb-4">{service.icon}<span>{service.name}</span></h3>
              <div className={`w-full  h-[400px] ${service.iconBg} rounded-2xl relative mb-10`}>
-              <Image alt="grass image" className="object-cover rounded-xl" src = {service.img} fill />
+              <Image loading="lazy" alt="grass image" className="object-cover rounded-xl" src = {service.img} fill />
             </div>
             <p className="text-gray-600 mb-6 text-lg">{service.desc}</p>
             <ul className="text-gray-600 space-y-2 mb-6">

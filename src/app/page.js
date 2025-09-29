@@ -380,6 +380,7 @@ export default function Home() {
             </h2>
           <div className="flex flex-row items-center justify-center">
           <iframe className="w-[50%] md:w-[267px] mx-auto" 
+          loading="lazy"
           src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F779969274740620%2F&show_text=false&width=267&t=0" 
           width="267" 
           height="476" 
@@ -391,6 +392,7 @@ export default function Home() {
           ></iframe>
 
           <iframe className="md:block hidden mx-auto"
+          loading="lazy"
             src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1289125769559919%2F&show_text=false&width=267&t=0"
             width="267"
             height="476"
@@ -402,6 +404,7 @@ export default function Home() {
             ></iframe>
           
           <iframe className="w-[50%] md:w-[267px] mx-auto"
+            loading="lazy"
             src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1929491644501197%2F&show_text=false&width=267&t=0"
             width="267"
             height="476"
