@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 export default function Benefit() {
 return <div>
-<section id="services" className="py-20 bg-white relative">
+<section id="services" className="py-10 pb-20 bg-white relative">
 <div className="container mx-auto px-4">
-  <div className="text-center mb-10">
+  <div className="text-center">
     <h2 className="text-2xl font-bold !text-[#9f0600] mb-7">
       <Flower className="w-8 h-8 inline-block" />
       <span className="ml-2">บริการของเรา</span>

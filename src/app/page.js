@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Benefit from '@/components/Benefit/page';
 import Navbar from '@/components/Navbar/page';
 import Image from 'next/image';
-import { ArrowRightIcon, ChevronsDown, CircleChevronDown, Flower, Rose, Star, X, ChevronDown, ChevronUp, CalendarCheck } from 'lucide-react';
+import { ArrowRightIcon, ChevronsDown, CircleChevronDown, Flower, Rose, Star, X, ChevronDown, ChevronUp, CalendarCheck, PersonStanding, Facebook } from 'lucide-react';
 export default function Home() {
   const [activeCard, setActiveCard] = useState(0);
   const [showReviewModal, setShowReviewModal] = useState(false);
@@ -150,7 +150,10 @@ export default function Home() {
           {/* Services Section */}
           <section id="services" className="py-20 bg-white " aria-labelledby="services-heading">
             <div className=" mx-auto px-4 sm:px-6 lg:px-8 lg:w-screen">
-              <h2 id="services-heading" className="sr-only">บริการของเรา</h2>
+                    <h2 className="text-center text-2xl font-bold !text-[#9f0600] mb-7">
+              <PersonStanding className="w-8 h-8 inline-block" />
+              <span className="ml-2">จุดขายของเรา</span>
+            </h2>
               <div className="flex md:flex-row flex-col justify-center lg:gap-20">
                 {/* Service 1 */}
                 <article className="text-center flex flex-col gap-5 p-6">
@@ -198,43 +201,6 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="flex flex-row items-center justify-center">
-          <iframe className="w-[50%] md:w-[267px] mx-auto" 
-          src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F779969274740620%2F&show_text=false&width=267&t=0" 
-          width="267" 
-          height="476" 
-          style={{ border: "none", overflow: "hidden" }}
-          scrolling="no"
-          frameBorder="0" 
-          allowfullscreen 
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
-          ></iframe>
-
-          <iframe className="md:block hidden mx-auto"
-            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1289125769559919%2F&show_text=false&width=267&t=0"
-            width="267"
-            height="476"
-            style={{ border: "none", overflow: "hidden" }}
-            scrolling="no"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowFullScreen
-            ></iframe>
-          
-          <iframe className="w-[50%] md:w-[267px] mx-auto"
-            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1929491644501197%2F&show_text=false&width=267&t=0"
-            width="267"
-            height="476"
-            style={{ border: "none", overflow: "hidden" }}
-            scrolling="no"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
-</section>
-
-         
-          
 
           <Benefit />
 
@@ -389,8 +355,8 @@ export default function Home() {
                 <button className="bg-[#9f0600] flex items-center justify-center text-white px-8 py-4 rounded-sm text-lg font-semibold transition-colors shadow-lg">
                   <CalendarCheck className='inline-block mr-2' aria-hidden="true"/> จองคิวเลย
                 </button>
-                <a href="tel:0876732013">
-                  <button className="border-2 border-[#5A352C] text-[#5A352C] px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+                <a href="tel:0876732013" className="block ">
+                  <button className="border-2 block w-full border-[#5A352C] text-[#5A352C] px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
                     โทรสอบถาม
                   </button>
                 </a>
@@ -401,6 +367,51 @@ export default function Home() {
             </div>
           </section>
         </main>
+
+        <section className="mt-20">
+            
+          <h2 className="text-center text-2xl font-bold !text-[#9f0600] mb-7">
+              <Facebook className="w-8 h-8 inline-block" />
+              <span className="ml-2">คอนเท้นของเรา</span>
+            </h2>
+          <div className="flex flex-row items-center justify-center">
+          <iframe className="w-[50%] md:w-[267px] mx-auto" 
+          src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F779969274740620%2F&show_text=false&width=267&t=0" 
+          width="267" 
+          height="476" 
+          style={{ border: "none", overflow: "hidden" }}
+          scrolling="no"
+          frameBorder="0" 
+          allowfullscreen 
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
+          ></iframe>
+
+          <iframe className="md:block hidden mx-auto"
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1289125769559919%2F&show_text=false&width=267&t=0"
+            width="267"
+            height="476"
+            style={{ border: "none", overflow: "hidden" }}
+            scrolling="no"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen
+            ></iframe>
+          
+          <iframe className="w-[50%] md:w-[267px] mx-auto"
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1929491644501197%2F&show_text=false&width=267&t=0"
+            width="267"
+            height="476"
+            style={{ border: "none", overflow: "hidden" }}
+            scrolling="no"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+
+          </div>
+       </section>
+
+         
 
         {/* Footer */}
         <footer id="contact" className="bg-white mt-20 text-[#5A352C] py-12 flex flex-col items-center justify-center">
