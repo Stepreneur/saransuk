@@ -117,7 +117,7 @@ export default function Home() {
         <Navbar />
         
         {/* Main Content */}
-        <main>
+        <main >
           {/* Hero Section */}
           <header className="bg-black py-20 h-screen flex items-center  justify-center relative">
             <Image src="/hero.webp" width={1000} height={1000} className="absolute top-0 left-0 w-full h-full object-cover z-1 opacity-50" alt="ภาพพื้นหลังร้านนวด" />
@@ -187,7 +187,7 @@ export default function Home() {
                 </article>
 
                 {/* Service 3 */}
-                <article className="text-center flex flex-col gap-5 p-6">
+                <article className="text-center flex flex-col gap-5 p-6  ">
                   <div className="flex flex-row items-center justify-center self-start md:self-center gap-5">
                     <div className="lg:w-60 lg:h-60 lg:rounded-tl-[100px] lg:rounded-tr-[0] bg-green-100 w-16 h-16 rounded-tr-[20px] overflow-hidden flex items-center justify-center">
                       <Image src="/10.webp" width={100} height={100} className="w-full h-full object-cover" alt="ภาพช่างนวดผู้เชี่ยวชาญ" />
@@ -203,12 +203,14 @@ export default function Home() {
             </div>
           </section>
 
+          <div className=''>
+            <Benefit />
+          </div>
 
-          <Benefit />
 
 
           {/* Customer Reviews */}
-          <section id="testimonials" className="py-20" aria-labelledby="testimonials-heading">
+          <section id="testimonials" className="py-20 " aria-labelledby="testimonials-heading">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <header className="text-center mb-1">
                 <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold text-[#5A352C] mb-4">
@@ -218,6 +220,8 @@ export default function Home() {
                   รีวิวจากลูกค้าจริง
                 </p>
               </header>
+              
+              
 
               <div className="grid md:grid-cols-3 gap-8">
                 <article className="bg-white p-6 rounded-lg shadow-md">
@@ -417,6 +421,8 @@ export default function Home() {
 
           </div>
        </section>
+
+       
 
          
 
