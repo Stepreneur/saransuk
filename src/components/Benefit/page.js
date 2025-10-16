@@ -1,9 +1,45 @@
 import { ArrowRight , Leaf ,Layers,  Scissors , TreePine , Flower,  ChevronDown, ChevronUp } from "lucide-react";
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import BookingCalendar from '../BookingCalendar/page'
 
 export default function Benefit() {
+  const [selectedSlot, setSelectedSlot] = useState(null);
+  const [bookedSlots, setBookedSlots] = useState({});
+  const BOOKING_LIMIT_PER_SLOT = 2;
+
+  const handleSlotSelect = (slotDate) => {
+    setSelectedSlot(slotDate);
+  };
+
+  const handleConfirmBooking = (bookingData) => {
+    if (!bookingData || !bookingData.slot) return;
+
+    const slotIso = bookingData.slot.toISOString();
+    const currentCount = bookedSlots[slotIso] || 0;
+
+    if (currentCount >= BOOKING_LIMIT_PER_SLOT) {
+      alert("ขออภัย ช่องเวลานี้เต็มแล้ว");
+      return;
+    }
+
+    setBookedSlots((prevSlots) => ({
+      ...prevSlots,
+      [slotIso]: currentCount + 1,
+    }));
+
+    setSelectedSlot(null);
+    alert(
+      `ยืนยันการจองเรียบร้อยแล้ว\n\nชื่อ: ${bookingData.name}\nเบอร์: ${bookingData.phone}\nเวลา: ${bookingData.slot.toLocaleString("th-TH", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      })}`
+    );
+  };
 return <div>
 <section id="services" className="py-10 pb-20 bg-white relative">
 <div className="container mx-auto px-4">
@@ -160,11 +196,19 @@ return <div>
             </ul>
             <div className="flex flex-col gap-4">
               <span className="text-xl font-bold text-gray-800">{service.price}</span>
-               <button className="w-full bg-[#9f0600] text-white px-5 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-sm font-semibold">
-                    <Link target="_blank" href="https://line.me/ti/p/guAbCz7twh" className="block">
-                      จองคิวเลย
-                    </Link>
+              <BookingCalendar
+                bookedSlots={bookedSlots}
+                bookingLimit={BOOKING_LIMIT_PER_SLOT}
+                onSlotClick={handleSlotSelect}
+                selectedSlot={selectedSlot}
+                onConfirmBooking={handleConfirmBooking}
+                dialogTitle={`จองนัดหมาย${service.name}`}
+                triggerButton={
+                  <button className="w-full bg-[#9f0600] text-white px-5 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-sm font-semibold">
+                    จองคิวเลย
                   </button>
+                }
+              />
             </div>
           </div>
         </div>
