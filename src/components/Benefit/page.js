@@ -8,6 +8,17 @@ export default function Benefit() {
   const [bookedSlots, setBookedSlots] = useState({});
   const BOOKING_LIMIT_PER_SLOT = 2;
 
+  // Mapping service IDs to massage type values
+  const serviceTypeMapping = {
+    "thaimassage": "thai",
+    "oilmassage": "oil", 
+    "thaideeptissuemassage": "deep-tissue",
+    "neckmassage": "neck-shoulder",
+    "footmassage": "foot",
+    "aromatherapy": "aromatherapy",
+    "bodyscrub": "bodyscrub"
+  };
+
   const handleSlotSelect = (slotDate) => {
     setSelectedSlot(slotDate);
   };
@@ -203,6 +214,7 @@ return <div>
                 selectedSlot={selectedSlot}
                 onConfirmBooking={handleConfirmBooking}
                 dialogTitle={`จองนัดหมาย${service.name}`}
+                preSelectedService={serviceTypeMapping[service.id]}
                 triggerButton={
                   <button className="w-full bg-[#9f0600] text-white px-5 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-sm font-semibold">
                     จองคิวเลย
