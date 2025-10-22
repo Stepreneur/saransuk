@@ -391,23 +391,9 @@ const BookingCalendar = ({
   const CalendarContent = () => (
     <div className="bg-white p-4 sm:p-6 rounded-2xl w-full">
       <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={handlePrevWeek}
-            className="p-2 rounded-full hover:bg-gray-200 transition-colors"
-          >
-            <ArrowLeftIcon />
-          </button>
-          <button
-            onClick={handleNextWeek}
-            className="p-2 rounded-full hover:bg-gray-200 transition-colors"
-          >
-            <ArrowRightIcon />
-          </button>
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center ml-4">
+         <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center ml-4">
             {formatWeekHeader(weekDays)}
           </h2>
-        </div>
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <div className="flex items-center gap-2">
             <label htmlFor="massage-type-select" className="text-sm font-medium text-gray-700 whitespace-nowrap">
@@ -455,6 +441,21 @@ const BookingCalendar = ({
           )}
         </div>
       </div>
+       <div className="flex items-center gap-2 w-full justify-between">
+          <button
+            onClick={handlePrevWeek}
+            className="p-2 rounded-full hover:bg-gray-200 transition-colors bg-gray-200"
+          >
+            <ArrowLeftIcon />
+          </button>
+          <button
+            onClick={handleNextWeek}
+            className="p-2 rounded-full hover:bg-gray-200 transition-colors bg-gray-200"
+          >
+            <ArrowRightIcon />
+          </button>
+         
+        </div>
 
       <div className="overflow-auto" style={{ maxHeight: "65vh" }}>
         <div className="grid grid-cols-[auto_repeat(7,1fr)] min-w-0 w-full">
@@ -648,9 +649,6 @@ const BookingCalendar = ({
                       <div className="text-sm text-gray-600 mb-1">ราคารวม</div>
                       <div className="text-2xl font-bold text-green-800">
                         {getCurrentPrice()} บาท
-                      </div>
-                      <div className="text-sm text-green-700 mt-1">
-                        {massageTypes.find(type => type.value === selectedMassageType)?.label} • {durationOptions.find(opt => opt.value === selectedDuration)?.label}
                       </div>
                     </div>
                   </div>
