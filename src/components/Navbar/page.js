@@ -1,14 +1,76 @@
 'use client';
-import { Globe, ChevronDown } from 'lucide-react';
-import React from 'react'
+import { Globe, ChevronDown, CalendarCheck } from 'lucide-react';
+import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { CalendarCheck } from 'lucide-react';
+import { getWeekDays } from "@/components/BookingCalendar/page";
+import BookingCalendar from '@/components/BookingCalendar/page';
 const Navbar = ({pageName}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('TH');
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [scrolledText,setScrolledText] = useState('white');
+  
+    const [selectedSlot, setSelectedSlot] = useState(null);
+    const [isBookingOpen, setIsBookingOpen] = useState(false);
+    const BOOKING_LIMIT_PER_SLOT = 2; // Set booking limit here
+  
+    const [bookedSlots, setBookedSlots] = useState(() => {
+      const today = new Date();
+      const weekDays = getWeekDays(today);
+      // New data structure: { isoString: count }
+      return {
+        [new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          weekDays[2].getDate(),
+          10,
+          30,
+          0
+        ).toISOString()]: 1,
+        [new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          weekDays[3].getDate(),
+          14,
+          0,
+          0
+        ).toISOString()]: 2, // This one is full
+        [new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          weekDays[3].getDate(),
+          14,
+          15,
+          0
+        ).toISOString()]: 1,
+      };
+    });
+  
+    const handleSlotSelect = (slotDate) => {
+      console.log("Slot selected in parent:", slotDate);
+      setSelectedSlot(slotDate);
+    };
+  
+    const handleConfirmBooking = () => {
+      if (!selectedSlot) return;
+  
+      const slotIso = selectedSlot.toISOString();
+      const currentCount = bookedSlots[slotIso] || 0;
+  
+      if (currentCount >= BOOKING_LIMIT_PER_SLOT) {
+        alert("ขออภัย ช่องเวลานี้เต็มแล้ว");
+        return;
+      }
+  
+      setBookedSlots((prevSlots) => ({
+        ...prevSlots,
+        [slotIso]: currentCount + 1,
+      }));
+  
+      setSelectedSlot(null); // Clear selection after booking
+      
+    };
 
   const languages = [
     { code: 'TH', name: 'ไทย' },
@@ -65,11 +127,21 @@ const Navbar = ({pageName}) => {
             {/* Desktop Navigation */}
             <div className="block">
               <div className="ml-10 flex items-baseline md:space-x-8">
-                <a href='https://lin.ee/Pfys1We' target='_blank'>
-                  <button className="bg-[#9f0600] flex items-center justify-center text-white p-3 rounded-sm text-md font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-                    <CalendarCheck className='inline-block self-center mt-[2px] mr-2 w-4 h-4' aria-hidden="true"/> <span className='text-[13px] md:text-md'>จองคิวผ่านไลน์</span>
-                  </button>
-                </a>
+                   
+                    <BookingCalendar 
+                     bookedSlots={bookedSlots}
+                  bookingLimit={BOOKING_LIMIT_PER_SLOT}
+                  onSlotClick={handleSlotSelect}
+                  selectedSlot={selectedSlot}
+                  isDialogOpen={isBookingOpen}
+                  onOpenChange={setIsBookingOpen}
+                       triggerButton={
+                         <button className="bg-[#9f0600] flex items-center justify-center text-white p-3 rounded-sm text-md font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                            <CalendarCheck className='inline-block self-center mt-[2px] mr-2 w-4 h-4' aria-hidden="true"/> <span className='text-[13px] md:text-md'>จองคิวเลย</span>
+                        </button>
+                       }
+                       
+                    />
                 <div className='hidden items-center gap-1 h-max justify-center self-center relative'>
                     
                     {/* Custom Language Dropdown */}

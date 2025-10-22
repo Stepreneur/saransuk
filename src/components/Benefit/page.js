@@ -40,16 +40,6 @@ export default function Benefit() {
     }));
 
     setSelectedSlot(null);
-    alert(
-      `ยืนยันการจองเรียบร้อยแล้ว\n\nชื่อ: ${bookingData.name}\nเบอร์: ${bookingData.phone}\nเวลา: ${bookingData.slot.toLocaleString("th-TH", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      })}`
-    );
   };
 return <div>
 <section id="services" className="py-10 pb-20 bg-white relative">

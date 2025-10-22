@@ -130,6 +130,7 @@ const BookingCalendar = ({
   const [isServiceSelectionOpen, setIsServiceSelectionOpen] = useState(false);
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
   const [customerName, setCustomerName] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
@@ -198,13 +199,14 @@ const BookingCalendar = ({
     };
   }, [currentDate]);
 
+  {/* Handle next week */}
   const handlePrevWeek = () =>
     setCurrentDate(
-      (prev) => new Date(new Date(prev).setDate(prev.getDate() - 30))
+      (prev) => new Date(new Date(prev).setDate(prev.getDate() - 7))
     );
   const handleNextWeek = () =>
     setCurrentDate(
-      (prev) => new Date(new Date(prev).setDate(prev.getDate() + 30))
+      (prev) => new Date(new Date(prev).setDate(prev.getDate() + 7))
     );
 
   const getSlotStatus = (date) => {
@@ -316,6 +318,7 @@ const BookingCalendar = ({
 
       setIsConfirmDialogOpen(false);
       setIsDialogOpen(false);
+      setIsSuccessDialogOpen(true);
       setCustomerName("");
       setCustomerEmail("");
       setCustomerPhone("");
@@ -454,7 +457,7 @@ const BookingCalendar = ({
       </div>
 
       <div className="overflow-auto" style={{ maxHeight: "65vh" }}>
-        <div className="grid grid-cols-[auto_repeat(7,1fr)] min-w-[50rem]">
+        <div className="grid grid-cols-[auto_repeat(7,1fr)] min-w-0 w-full">
           <div className="sticky top-0 left-0 bg-white -z-10"></div>
 
           {weekDays.map((day, index) => {
@@ -568,8 +571,8 @@ const BookingCalendar = ({
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-          <Dialog.Content className="fixed left-[50%] top-[50%] z-50 w-[90vw] max-w-2xl translate-x-[-50%] translate-y-[-50%] bg-white rounded-2xl shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+    <Dialog.Content className="fixed left-[50%] top-[50%] z-50 w-[95vw] sm:w-[90vw] max-w-md sm:max-w-2xl translate-x-[-50%] translate-y-[-50%] bg-white rounded-2xl shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]">
+            <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
               <Dialog.Title className="text-2xl font-bold text-gray-800">
                 เลือกบริการ
               </Dialog.Title>
@@ -582,7 +585,7 @@ const BookingCalendar = ({
                 </button>
               </Dialog.Close>
             </div>
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               <div className="space-y-6">
                 {/* Massage Type Selection */}
                 <div>
@@ -592,15 +595,15 @@ const BookingCalendar = ({
                       <button
                         key={type.value}
                         onClick={() => setSelectedMassageType(type.value)}
-                        className={`p-4 text-center border-2 rounded-lg transition-all flex items-center justify-center  ${
+                        className={`p-2 sm:p-4 text-center border-2 rounded-lg transition-all flex items-center justify-center ${
                           selectedMassageType === type.value
                             ? "border-[#9f0600] bg-red-50"
                             : "border-gray-200 hover:border-gray-300"
                         }`}
                       >
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center w-full">
                           <div>
-                            <div className="font-semibold text-gray-800 flex">{type.label}</div>
+                            <div className="font-semibold text-gray-800 flex text-sm sm:text-base">{type.label}</div>
                           </div>
                         </div>
                       </button>
@@ -673,7 +676,7 @@ const BookingCalendar = ({
       <Dialog.Root open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-          <Dialog.Content className="fixed left-[50%] top-[50%] z-50 w-[95vw] max-w-7xl translate-x-[-50%] translate-y-[-50%] bg-white rounded-2xl shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] max-h-[90vh] overflow-hidden">
+          <Dialog.Content className="fixed left-[50%] top-[50%] z-50 w-[95vw] sm:w-[90vw] max-w-5xl sm:max-w-7xl translate-x-[-50%] translate-y-[-50%] bg-white rounded-2xl shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] max-h-[90vh] overflow-hidden">
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <Dialog.Title className="text-2xl font-bold text-gray-800">
                 {dialogTitle}
@@ -687,7 +690,7 @@ const BookingCalendar = ({
                 </button>
               </Dialog.Close>
             </div>
-            <div className="p-6 overflow-auto max-h-[calc(90vh-100px)]">
+            <div className="p-4 sm:p-6 overflow-auto max-h-[calc(90vh-100px)]">
               <CalendarContent />
             </div>
           </Dialog.Content>
@@ -698,8 +701,8 @@ const BookingCalendar = ({
       <Dialog.Root open={isConfirmDialogOpen} onOpenChange={setIsConfirmDialogOpen}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/50 z-[60] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-          <Dialog.Content className="fixed left-[50%] top-[50%] z-[70] w-[90vw] max-w-md translate-x-[-50%] translate-y-[-50%] bg-white rounded-2xl shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+          <Dialog.Content className="fixed left-[50%] top-[50%] z-[70] w-[95vw] sm:w-[90vw] max-w-md translate-x-[-50%] translate-y-[-50%] bg-white rounded-2xl shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]">
+            <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
               <Dialog.Title className="text-xl font-bold text-gray-800">
                 ยืนยันการจอง
               </Dialog.Title>
@@ -717,7 +720,7 @@ const BookingCalendar = ({
                 </button>
               </Dialog.Close>
             </div>
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               {selectedSlot && (
                 <div className="mb-6 space-y-4">
                   <div className="p-4 bg-blue-50 rounded-lg">
@@ -817,6 +820,74 @@ const BookingCalendar = ({
                   }`}
                 >
                   {isSubmitting ? 'กำลังบันทึก...' : 'ยืนยันการจอง'}
+                </button>
+              </div>
+            </div>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+
+      {/* Success Dialog */}
+      <Dialog.Root open={isSuccessDialogOpen} onOpenChange={setIsSuccessDialogOpen}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black/50 z-[80] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+          <Dialog.Content className="fixed left-[50%] top-[50%] z-[90] w-[95vw] sm:w-[90vw] max-w-md translate-x-[-50%] translate-y-[-50%] bg-white rounded-2xl shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]">
+            <div className="p-6 text-center">
+              {/* Success Icon */}
+              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+                <svg
+                  className="h-8 w-8 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              
+              {/* Success Message */}
+              <Dialog.Title className="text-2xl font-bold text-gray-800 mb-2">
+                จองสำเร็จ!
+              </Dialog.Title>
+              <p className="text-gray-600 mb-6">
+                การจองของคุณได้รับการบันทึกเรียบร้อยแล้ว
+              </p>
+              
+              {/* Booking Details */}
+              {selectedSlot && (
+                <div className="bg-gray-50 rounded-lg p-4 mb-6 text-left">
+                  <h3 className="font-semibold text-gray-800 mb-2">รายละเอียดการจอง</h3>
+                  <div className="space-y-1 text-sm text-gray-600">
+                    <p><span className="font-medium">บริการ:</span> {massageTypes.find(type => type.value === selectedMassageType)?.label || selectedMassageType}</p>
+                    <p><span className="font-medium">ระยะเวลา:</span> {durationOptions.find(opt => opt.value === selectedDuration)?.label || selectedDuration + " นาที"}</p>
+                    <p><span className="font-medium">วันที่:</span> {selectedSlot.toLocaleDateString("th-TH", {
+                      weekday: "long",
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}</p>
+                    <p><span className="font-medium">เวลา:</span> {selectedSlot.toLocaleTimeString("th-TH", {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}</p>
+                    <p><span className="font-medium">ราคา:</span> <span className="font-bold text-green-600">{getCurrentPrice()} บาท</span></p>
+                  </div>
+                </div>
+              )}
+              
+              {/* Action Buttons */}
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setIsSuccessDialogOpen(false)}
+                  className="flex-1 px-6 py-3 bg-[#9f0600] text-white rounded-lg hover:bg-[#8a0500] transition-colors font-semibold"
+                >
+                  ตกลง
                 </button>
               </div>
             </div>

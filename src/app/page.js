@@ -30,6 +30,7 @@ export default function Home() {
   const [openFAQ, setOpenFAQ] = useState(null);
   const scrollContainerRef = useRef(null);
   const [selectedSlot, setSelectedSlot] = useState(null);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const BOOKING_LIMIT_PER_SLOT = 2; // Set booking limit here
 
   const [bookedSlots, setBookedSlots] = useState(() => {
@@ -86,9 +87,7 @@ export default function Home() {
     }));
 
     setSelectedSlot(null); // Clear selection after booking
-    alert(
-      `ยืนยันการจองเวลา: ${selectedSlot.toLocaleString("th-TH")} เรียบร้อยแล้ว`
-    );
+    
   };
   const cards = [
     {
@@ -236,20 +235,28 @@ export default function Home() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                  <a href="https://lin.ee/Pfys1We" target="_blank">
-                    <button
-                      className="lg:w-[240px] lg:h-[70px] lg:rounded-xl
-                    bg-[#9f0600] flex transition-colors items-center justify-center shadow-lg text-white tracking-wide w-[200px] py-3  rounded-lg text-lg font-semibold group"
-                    >
-                      <span className=" lg:text-[22px] flex items-center gap-2">
-                        จองคิวผ่านไลน์
-                        <ArrowRightIcon
-                          className="lg:h-6 lg:w-6 lg:group-hover:translate-x-5
-                        h-4 w-4 transition-transform duration-300  inline-block group-hover:translate-x-2"
-                        />
-                      </span>
-                    </button>
-                  </a>
+                  <BookingCalendar
+                    bookedSlots={bookedSlots}
+                    bookingLimit={BOOKING_LIMIT_PER_SLOT}
+                    onSlotClick={handleSlotSelect}
+                    selectedSlot={selectedSlot}
+                    triggerButton={
+                      <button
+                        className="lg:w-[240px] lg:h-[70px] lg:rounded-xl
+                      bg-[#9f0600] flex transition-colors items-center justify-center shadow-lg text-white tracking-wide w-[200px] py-3  rounded-lg text-lg font-semibold group"
+                      >
+                        <span className="lg:text-[22px] flex items-center gap-2">
+                          จองคิวเลย
+                          <ArrowRightIcon
+                            className="lg:h-6 lg:w-6 lg:group-hover:translate-x-5
+                          h-4 w-4 transition-transform duration-300 inline-block group-hover:translate-x-2"
+                          />
+                        </span>
+                      </button>
+                    }
+                    isDialogOpen={isBookingOpen}
+                    onOpenChange={setIsBookingOpen}
+                  />
                 </div>
               </div>
             </div>
@@ -559,15 +566,23 @@ export default function Home() {
                 มาใช้บริการนวดกับเราเพื่อสุขภาพและความผ่อนคลายที่ดีที่สุด
               </p>
               <nav className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://lin.ee/Pfys1We" target="_blank">
-                  <button className="bg-[#9f0600] flex items-center justify-center text-white px-8 py-4 rounded-sm text-lg font-semibold transition-colors shadow-lg">
-                    <CalendarCheck
-                      className="inline-block mr-2"
-                      aria-hidden="true"
-                    />{" "}
-                    จองคิวผ่านไลน์
-                  </button>
-                </a>
+                <BookingCalendar
+                  bookedSlots={bookedSlots}
+                  bookingLimit={BOOKING_LIMIT_PER_SLOT}
+                  onSlotClick={handleSlotSelect}
+                  selectedSlot={selectedSlot}
+                  triggerButton={
+                    <button className="bg-[#9f0600] flex items-center justify-center text-white px-8 py-4 rounded-sm text-lg font-semibold transition-colors shadow-lg">
+                      <CalendarCheck
+                        className="inline-block mr-2"
+                        aria-hidden="true"
+                      />{" "}
+                      จองคิวเลย
+                    </button>
+                  }
+                  isDialogOpen={isBookingOpen}
+                  onOpenChange={setIsBookingOpen}
+                />
                 <a href="tel:0876732013" className="block ">
                   <button className="border-2 block w-full border-[#5A352C] text-[#5A352C] px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
                     โทรสอบถาม
@@ -597,7 +612,7 @@ export default function Home() {
               style={{ border: "none", overflow: "hidden" }}
               scrolling="no"
               frameBorder="0"
-              allowfullscreen
+              allowFullScreen
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             ></iframe>
 
@@ -856,12 +871,7 @@ export default function Home() {
           </div>
         )}
       </div>
-      <BookingCalendar
-        bookedSlots={bookedSlots}
-        bookingLimit={BOOKING_LIMIT_PER_SLOT}
-        onSlotClick={handleSlotSelect}
-        selectedSlot={selectedSlot}
-      />
+
       {selectedSlot && (
         <div className="mt-6 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg">
           <p className="font-semibold text-blue-800">ช่องเวลาที่เลือก:</p>
