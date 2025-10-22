@@ -590,7 +590,7 @@ const BookingCalendar = ({
                 {/* Massage Type Selection */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800 mb-4">ประเภทการนวด</h3>
-                  <div className="grid items-center justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  <div className="grid items-center justify-center grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     {massageTypes.map((type) => (
                       <button
                         key={type.value}
