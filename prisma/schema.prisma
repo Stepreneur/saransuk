@@ -29,3 +29,19 @@ model Booking {
   @@index([massageType])
   @@index([createdAt])
 }
+
+// recently added please make sure this schema work well with the booking model
+model PaymentTransaction {
+  id         Int      @id @default(autoincrement())
+  fullname   String
+  address    String
+  order_id   String   @db.VarChar(191)
+  session_id String   @db.VarChar(191)
+  status     String   @db.VarChar(32)
+  createdAt  DateTime @default(now()) @db.Timestamp(6)
+  updatedAt  DateTime @updatedAt @db.Timestamp(6)
+
+  @@index([order_id])
+  @@index([session_id])
+  @@index([createdAt])
+}

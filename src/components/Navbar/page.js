@@ -3,8 +3,7 @@ import { Globe, ChevronDown, CalendarCheck } from 'lucide-react';
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { getWeekDays } from "@/components/BookingCalendar/page";
-import BookingCalendar from '@/components/BookingCalendar/page';
+import BookingCalendar, { getWeekDays } from '@/components/BookingCalendar/page';
 const Navbar = ({pageName}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('TH');

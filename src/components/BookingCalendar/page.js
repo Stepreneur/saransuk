@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
@@ -131,6 +131,14 @@ const BookingCalendar = ({
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const [checkoutClientSecret, setCheckoutClientSecret] = useState("");
+  const [orderId, setOrderId] = useState("");
+  const [checkoutError, setCheckoutError] = useState("");
+  const [checkoutUrl, setCheckoutUrl] = useState("");
+  const checkoutContainerRef = useRef(null);
+  const checkoutUnmountRef = useRef(null);
+  const [isFailDialogOpen, setIsFailDialogOpen] = useState(false);
   const [customerName, setCustomerName] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
@@ -296,39 +304,89 @@ const BookingCalendar = ({
 
     try {
       setIsSubmitting(true);
-      const res = await fetch('/api/bookings', {
+      // Create Stripe Checkout Embedded session
+      const res = await fetch('/api_stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          user: { fullname: customerName, address: '-' },
+          product: { name: `Booking ${selectedMassageType} ${selectedDuration} นาที`, price: getCurrentPrice(), quantity: 1 },
+          booking: payload,
+          returnUrl: `${window.location.origin}${window.location.pathname}`,
+        }),
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        throw new Error(err?.error || 'ไม่สามารถบันทึกการจองได้');
+        throw new Error(err?.message || 'ไม่สามารถสร้างการชำระเงินได้');
       }
-      const { booking } = await res.json();
-
-      if (onConfirmBooking) {
-        onConfirmBooking({
-          ...payload,
-          slot: new Date(payload.slot),
-          price: getCurrentPrice(),
-          bookingId: booking?.id,
-        });
+      const data = await res.json();
+      if (!data?.url) {
+        throw new Error('ไม่พบ Checkout URL จากเซสชัน');
       }
-
+      setCheckoutClientSecret(data.client_secret || "");
+      setCheckoutUrl(data.url || "");
+      setOrderId(data.order_id || "");
       setIsConfirmDialogOpen(false);
       setIsDialogOpen(false);
-      setIsSuccessDialogOpen(true);
-      setCustomerName("");
-      setCustomerEmail("");
-      setCustomerPhone("");
-      onSlotClick(null);
+      // Redirect to Stripe Checkout at top-level
+      if (data.url) {
+        window.location.href = data.url;
+        return;
+      }
     } catch (e) {
+      setCheckoutError(e.message || 'เกิดข้อผิดพลาดขณะเตรียมการชำระเงิน');
       alert(e.message || 'เกิดข้อผิดพลาดขณะบันทึกการจอง');
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  // Detect return from Stripe Checkout on this page and show result modal
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const result = params.get('checkout_result') || params.get('result');
+    if (!result) return;
+    if (result === 'success') {
+      setIsSuccessDialogOpen(true);
+    } else {
+      setIsFailDialogOpen(true);
+    }
+    // Clean URL
+    const newUrl = `${window.location.origin}${window.location.pathname}${window.location.hash || ''}`;
+    window.history.replaceState(null, '', newUrl);
+  }, []);
+
+  // Poll order status after opening checkout to detect payment completion via webhook
+  useEffect(() => {
+    if (!isCheckoutOpen || !orderId) return;
+    let timer;
+    const poll = async () => {
+      try {
+        const res = await fetch(`/api_stripe/get_order/${orderId}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const status = data?.order?.status;
+        if (status === 'paid') {
+          setIsCheckoutOpen(false);
+          setIsSuccessDialogOpen(true);
+          setCustomerName("");
+          setCustomerEmail("");
+          setCustomerPhone("");
+          onSlotClick(null);
+          return; // stop polling
+        }
+        if (status === 'expired' || status === 'canceled') {
+          setIsCheckoutOpen(false);
+          alert('การชำระเงินไม่สำเร็จ');
+          return;
+        }
+      } catch {}
+      timer = setTimeout(poll, 2000);
+    };
+    poll();
+    return () => { if (timer) clearTimeout(timer); };
+  }, [isCheckoutOpen, orderId]);
 
   const weekDays = useMemo(() => getWeekDays(currentDate), [currentDate]);
 
@@ -887,6 +945,25 @@ const BookingCalendar = ({
                 >
                   ตกลง
                 </button>
+              </div>
+            </div>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+
+      {/* Fail Dialog */}
+      <Dialog.Root open={isFailDialogOpen} onOpenChange={setIsFailDialogOpen}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black/50 z-[80] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+          <Dialog.Content className="fixed left-[50%] top-[50%] z-[90] w-[95vw] sm:w-[90vw] max-w-md translate-x-[-50%] translate-y-[-50%] bg-white rounded-2xl shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]">
+            <div className="p-6 text-center">
+              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100 mb-4">
+                <svg className="h-8 w-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+              </div>
+              <Dialog.Title className="text-2xl font-bold text-gray-800 mb-2">การชำระเงินไม่สำเร็จ</Dialog.Title>
+              <p className="text-gray-600 mb-6">โปรดลองอีกครั้งหรือติดต่อเราเพื่อขอความช่วยเหลือ</p>
+              <div className="flex gap-3">
+                <button onClick={() => setIsFailDialogOpen(false)} className="flex-1 px-6 py-3 bg-[#9f0600] text-white rounded-lg hover:bg-[#8a0500] transition-colors font-semibold">ตกลง</button>
               </div>
             </div>
           </Dialog.Content>
