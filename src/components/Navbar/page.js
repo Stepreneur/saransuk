@@ -127,7 +127,7 @@ const Navbar = ({pageName}) => {
             {/* Desktop Navigation */}
             <div className="block">
               <div className="ml-10 flex items-baseline md:space-x-8">
-                   
+                   {/*}
                     <BookingCalendar 
                      bookedSlots={bookedSlots}
                   bookingLimit={BOOKING_LIMIT_PER_SLOT}
@@ -142,6 +142,7 @@ const Navbar = ({pageName}) => {
                        }
                        
                     />
+                    */}
                 <div className='hidden items-center gap-1 h-max justify-center self-center relative'>
                     
                     {/* Custom Language Dropdown */}

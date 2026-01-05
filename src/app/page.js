@@ -235,6 +235,19 @@ export default function Home() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                   <button onClick={() => window.location.href='tel:0876732013'}
+                        className="lg:w-[240px] lg:h-[70px] lg:rounded-xl
+                      bg-[#9f0600] flex transition-colors items-center justify-center shadow-lg text-white tracking-wide w-[200px] py-3  rounded-lg text-lg font-semibold group"
+                      >
+                        <span className="lg:text-[22px] flex items-center gap-2">
+                          จองคิวเลย
+                          <ArrowRightIcon
+                            className="lg:h-6 lg:w-6 lg:group-hover:translate-x-5
+                          h-4 w-4 transition-transform duration-300 inline-block group-hover:translate-x-2"
+                          />
+                        </span>
+                      </button>
+                  {/*
                   <BookingCalendar
                     bookedSlots={bookedSlots}
                     bookingLimit={BOOKING_LIMIT_PER_SLOT}
@@ -257,7 +270,8 @@ export default function Home() {
                     isDialogOpen={isBookingOpen}
                     onOpenChange={setIsBookingOpen}
                   />
-                </div>
+                  */}
+                </div> 
               </div>
             </div>
             <ChevronsDown className="absolute bottom-10 left-[50%] translate-x-[-50%] w-10 h-10 animate-bounce text-white" />
@@ -566,6 +580,7 @@ export default function Home() {
                 มาใช้บริการนวดกับเราเพื่อสุขภาพและความผ่อนคลายที่ดีที่สุด
               </p>
               <nav className="flex flex-col sm:flex-row gap-4 justify-center">
+                {/*}
                 <BookingCalendar
                   bookedSlots={bookedSlots}
                   bookingLimit={BOOKING_LIMIT_PER_SLOT}
@@ -582,7 +597,10 @@ export default function Home() {
                   }
                   isDialogOpen={isBookingOpen}
                   onOpenChange={setIsBookingOpen}
-                />
+                /> */}
+                 <button onClick={() => window.location.href = 'https://www.facebook.com/profile.php?id=61584335871330'} className="bg-[#9f0600] flex items-center justify-center text-white px-8 py-4 rounded-sm text-lg font-semibold transition-colors shadow-lg">
+                      ติดตามเรา
+                    </button>
                 <a href="tel:0876732013" className="block ">
                   <button className="border-2 block w-full border-[#5A352C] text-[#5A352C] px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
                     โทรสอบถาม
@@ -606,7 +624,7 @@ export default function Home() {
             <iframe
               className="w-[50%] md:w-[267px] mx-auto"
               loading="lazy"
-              src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F779969274740620%2F&show_text=false&width=267&t=0"
+              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02yB6w43CZZcT54Nya9oH5oSJvdvd99JAkvfoNqVTa44KgcpDsacGcmHKxZM3L77fbl%26id%3D61584335871330&show_text=true&width=500" 
               width="267"
               height="476"
               style={{ border: "none", overflow: "hidden" }}
@@ -619,7 +637,7 @@ export default function Home() {
             <iframe
               className="md:block hidden mx-auto"
               loading="lazy"
-              src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1289125769559919%2F&show_text=false&width=267&t=0"
+              src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F853069064151819%2F&show_text=false&width=267&t=0"
               width="267"
               height="476"
               style={{ border: "none", overflow: "hidden" }}
@@ -632,7 +650,7 @@ export default function Home() {
             <iframe
               className="w-[50%] md:w-[267px] mx-auto"
               loading="lazy"
-              src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1929491644501197%2F&show_text=false&width=267&t=0"
+              src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1521767135769236%2F&show_text=false&width=267&t=0"
               width="267"
               height="476"
               style={{ border: "none", overflow: "hidden" }}

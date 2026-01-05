@@ -71,14 +71,13 @@ return <div>
           img: "/thaimassage.webp",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
           features: [
-            "• 1 ชั่วโมง <span class='font-bold'>199 บาท</span>",
-            "• 1.5 ชั่วโมง <span class='font-bold'>299 บาท</span>",
-            "• <span>2</span> ชั่วโมง <span class='font-bold'>399 บาท</span> ",
-            "• เพิ่ม <span>30</span> นาที <span class='font-bold'>100 บาท</span>"
+            "• 1 ชั่วโมง <span class='font-bold'>300 บาท</span>",
+            "• 1.5 ชั่วโมง <span class='font-bold'>450 บาท</span>",
+            "• <span>2</span> ชั่วโมง <span class='font-bold'>550 บาท</span> ",
           ]
         },{
           id : "oilmassage",
-          name: "นวดน้ำมัน",
+          name: "นวดน้ำมันมะพร้าว",
           desc: "ผ่อนคลายร่างกายและจิตใจด้วยนวดน้ำมันสูตรพิเศษ ช่วยให้กล้ามเนื้อคลายตัวอย่างล้ำลึก กระตุ้นการไหลเวียนเลือด รู้สึกได้ตั้งแต่สัมผัสแรกผ่อนคลายร่างกายและจิตใจด้วยนวดน้ำมันสูตรพิเศษ  ",
           price: "",
           icon: '',
@@ -87,10 +86,9 @@ return <div>
           iconBg: "bg-yellow-600 group-hover:bg-yellow-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
           features: [
-            "• 1 ชั่วโมง <span class='font-bold'>399 บาท</span> ",
-            "• 1.5 ชั่วโมง <span class='font-bold'>499 บาท</span>",
-            "• <span>2</span> ชั่วโมง <span class='font-bold'>599 บาท</span>",
-            "• เพิ่ม <span>30</span> นาที <span class='font-bold'>100 บาท</span> "
+            "• 1 ชั่วโมง <span class='font-bold'>600 บาท</span> ",
+            "• 1.5 ชั่วโมง <span class='font-bold'>900 บาท</span>",
+            "• <span>2</span> ชั่วโมง <span class='font-bold'>1,150 บาท</span>",
           ]
         },
         {
@@ -104,10 +102,9 @@ return <div>
           iconBg: "bg-gray-600 group-hover:bg-gray-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
           features: [
-            "• 1 ชั่วโมง <span class='font-bold'>299 บาท</span>",
-            "• 1.5 ชั่วโมง <span class='font-bold'>399 บาท</span>",
-            "• <span>2</span> ชั่วโมง <span class='font-bold'>499 บาท</span>",
-            "• เพิ่ม <span>30</span> นาที <span class='font-bold'>100 บาท</span> "
+            "• 1 ชั่วโมง <span class='font-bold'>350 บาท</span>",
+            "• 1.5 ชั่วโมง <span class='font-bold'>525 บาท</span>",
+            "• <span>2</span> ชั่วโมง <span class='font-bold'>650 บาท</span>",
           ]
         },
         {
@@ -121,15 +118,15 @@ return <div>
           iconBg: "bg-emerald-600 group-hover:bg-emerald-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
           features: [
-            "• 1 ชั่วโมง <span class='font-bold'>299 บาท</span>",
-            "• 1.5 ชั่วโมง <span class='font-bold'>399 บาท</span>",
-            "• <span>2</span> ชั่วโมง <span class='font-bold'>499 บาท</span>",
+            "• 1 ชั่วโมง <span class='font-bold'>350 บาท</span>",
+            "• 1.5 ชั่วโมง <span class='font-bold'>525 บาท</span>",
+            "• <span>2</span> ชั่วโมง <span class='font-bold'>650 บาท</span>",
             "• เพิ่ม <span>30</span> นาที <span class='font-bold'>100 บาท</span> "
           ]
         },
         {
           id : "footmassage",
-          name: "นวดเท้า",
+          name: "นวดฝ่าเท้า",
           desc: "สัมผัสความผ่อนคลายจากปลายเท้าสู่ทั่วร่างกายด้วยศาสตร์การนวดกดจุดฝ่าเท้า ที่มุ่งเน้นไปที่การกระตุ้นจุดสะท้อนต่าง ๆ บนฝ่าเท้า ซึ่งเชื่อมโยงกับอวัยวะและระบบต่าง ๆ ทั่วร่างกาย ",
           price: "",
           icon: '',
@@ -138,14 +135,13 @@ return <div>
           iconBg: "bg-yellow-600 group-hover:bg-yellow-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
           features: [
-            "• 1 ชั่วโมง <span class='font-bold'>199 บาท</span>",
-            "• 1.5 ชั่วโมง <span class='font-bold'>299 บาท</span>",
-            "• <span>2</span> ชั่วโมง <span class='font-bold'>399 บาท</span>",
-            "• เพิ่ม <span>30</span> นาที <span class='font-bold'>100 บาท</span>"
+            "• 1 ชั่วโมง <span class='font-bold'>300 บาท</span>",
+            "• 1.5 ชั่วโมง <span class='font-bold'>450 บาท</span>",
+            "• <span>2</span> ชั่วโมง <span class='font-bold'>550 บาท</span>",
           ]
         },{
           id : "aromatherapy",
-          name: "อโรม่า",
+          name: "นวดอโรม่า",
           desc: "สัมผัสประสบการณ์นวดอโรม่าแบบพรีเมียม ด้วยน้ำมันหอมระเหยสูตรพิเศษ  ช่วยคลายความตึงเครียดของกล้ามเนื้อ  พร้อมกลิ่นหอมละมุนจากธรรมชาติ มอบความสดชื่นและผ่อนคลายลึกถึงจิตใจ เหมาะสำหรับผู้ที่ต้องการฟื้นฟูร่างกายและเติมพลังให้ชีวิตประจำวัน",
           price: "",
           icon: '',
@@ -154,10 +150,9 @@ return <div>
           iconBg: "bg-yellow-600 group-hover:bg-yellow-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
           features: [
-            "• 1 ชั่วโมง <span class='font-bold'>499 บาท</span>",
-            "• 1.5 ชั่วโมง <span class='font-bold'>599 บาท</span>",
-            "• <span>2</span> ชั่วโมง <span class='font-bold'>699 บาท</span>",
-            "• เพิ่ม <span>30</span> นาที <span class='font-bold'>100 บาท</span> "
+            "• 1 ชั่วโมง <span class='font-bold'>500 บาท</span>",
+            "• 1.5 ชั่วโมง <span class='font-bold'>750 บาท</span>",
+            "• <span>2</span> ชั่วโมง <span class='font-bold'>950 บาท</span>",
           ]
         },{
           id : "bodyscrub",
@@ -170,10 +165,7 @@ return <div>
           iconBg: "bg-yellow-600 group-hover:bg-yellow-700",
           buttonBg: "bg-white text-black border border-black hover:text-white hover:bg-black",
           features: [
-            "• 1 ชั่วโมง <span class='font-bold'>499 บาท</span> ",
-            "• 1.5 ชั่วโมง <span class='font-bold'>599 บาท</span>",
-            "• <span>2</span> ชั่วโมง <span class='font-bold'>699 บาท</span>",
-            "• เพิ่ม <span>30</span> นาที <span class='font-bold'>100 บาท</span>"
+            "• 1 ชั่วโมง <span class='font-bold'>500 บาท</span> ",
           ]
         }
 
@@ -197,6 +189,10 @@ return <div>
             </ul>
             <div className="flex flex-col gap-4">
               <span className="text-xl font-bold text-gray-800">{service.price}</span>
+              <button onClick={() => window.location.href='tel:0876732013'} className="w-full bg-[#9f0600] text-white px-5 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-sm font-semibold">
+                    จองคิวเลย
+                  </button>
+            {/*
               <BookingCalendar
                 bookedSlots={bookedSlots}
                 bookingLimit={BOOKING_LIMIT_PER_SLOT}
@@ -210,7 +206,7 @@ return <div>
                     จองคิวเลย
                   </button>
                 }
-              />
+              />  */}
             </div>
           </div>
         </div>
